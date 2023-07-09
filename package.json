@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "@tweenjs/tween.js": "^21.0.0",
+    "@types/three": "^0.152.1",
+    "gsap": "^3.12.1",
+    "three": "^0.153.0",
+    "three-addons": "^1.2.0",
+    "three-mesh-bvh": "^0.6.0",
+    "three-mesh-ui": "^6.5.4",
+    "three-pathfinding": "^1.2.0",
+    "three-spritetext": "^1.8.1",
+    "three.meshline": "^1.4.0",
+    "voxelizer": "^1.0.0"
+  },
+  "devDependencies": {
+    "vite": "^4.3.9"
+  }
+}

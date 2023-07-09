@@ -1,0 +1,94 @@
+{
+    "markers": [
+        {
+            "file": "01-38.glb",
+            "name": "Rue de la Procession",
+            "description": "Rue de la Procession",
+            "marker": {"x": -47.18409266082575, "y": 1.98349940958572, "z": 29.95234684567472},
+            "fpvMarker": {
+                "x": -11.77579431479887,
+                "y": -1.3454027712254688,
+                "z": -46.38831176513724
+            }
+        },
+        {
+            "file": "10-28.glb",
+            "name": "Rond point place Falguiere n°1",
+            "description": "Rond point place Falguiere",
+            "marker": {"x": -17.388016154734203, "y": 2.155081170241852, "z": 56.395357675078294},
+            "fpvMarker": {
+                "x": -19.838206463476606,
+                "y": -1.257766832691034,
+                "z": -4.875279536368016
+            }
+        },
+        {
+            "file": "10-23.glb",
+            "name": "Rond point place Falguiere n°2",
+            "description": "Rond point place Falguiere. Ici se trouve l'entree",
+            "marker": {"x": 22.86263966636136, "y": -1.1676394868617104e-14, "z": 52.58580757933476},
+            "fpvMarker": {
+                "x": -9.870153863872222,
+                "y": -3.629979723391872,
+                "z": -17.08170542310521
+            }
+        },
+        {
+            "file": "11-56.glb",
+            "name": "Rue Labrouste",
+            "description": "Rue Labrouste",
+            "marker": {"x": 23.105579842985925, "y": -4.954424313926908e-15, "z": 19.61058371761425},
+            "fpvMarker": {
+                "x": -19.40655813328868,
+                "y": 0.6495306531918446, 
+                "z": -36.12946228790487
+            }
+        },
+        {
+            "file": "12-52.glb",
+            "name": "Salle de cuillieres",
+            "description": "Salle de cuillieres. Remarquez les sculptures de cuillieres sur les murs et le sol...",
+            "marker": {"x": -2.433528270245173, "y": 4.191484925624795, "z": -101.3528294670035},
+            "fpvMarker": {
+                "x": 8.593511433173894,
+                "y": 0.5829375064108657,
+                "z": 8.291301813686811
+            }
+        },
+        {
+            "file": "10-49.glb",
+            "name": "Rond point place Falguiere n°3",
+            "description": "Rond point place Falguiere",
+            "marker": {"x": 1.641008135609603, "y": -8.044849440421887e-15, "z": 52.23078094213575},
+            "fpvMarker": {
+                "x": -11.563933485796566,
+                "y": -1.2463876170357184,
+                "z": -46.864248096986614
+            }
+
+        },
+        {
+            "file": "11-27.glb",
+            "name": "Vers Rue de Vouille",
+            "description": "Vers Rue de Vouille",
+            "marker": {"x": -13.330894018024537, "y": 6.638661468965108, "z": -116.69353148040092},
+            "fpvMarker": {
+                "x": 0.3917722740710685,
+                "y": -2.670651098360659,
+                "z": -58.672824884261004
+            }
+        },
+        {
+            "file": "10-38.glb",
+            "name": "Rue Castagnary",
+            "description": "Rue Castagnary",
+            "marker": {"x": -2.2955493217965, "y": 0.47866410752287564, "z": -1.3259920346161076},
+            "fpvMarker": {
+                "x": -5.099819412694115,
+                "y": 0.8172534214925335,
+                "z": -76.00462152650275
+            }
+        }
+    ]
+     
+}
