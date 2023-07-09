@@ -2,4 +2,3 @@ node_modules
 package-lock.json
 models/catacombs/parts
 **/.DS_Store
-models/catacombs/main_scans/*
