@@ -5,7 +5,6 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import Loader from './Loader';
 import InfoPanel from './InfoPanels';
 import MarkerManager from './MarkerManager';
-import TeleportManager from './TeleportManager';
 
 export default class RendererManager {
 
@@ -53,8 +52,8 @@ export default class RendererManager {
 
         this.mainLight = new THREE.HemisphereLight( 0x8d7c7c, 0x494966 )
 
-        this.renderedCompressedFilePath = './models/telecom_corridors/compressed/scan-etages45_compressed.glb'
-        this.renderedFilePath = './models/telecom_corridors/scan-etages45.glb'
+        this.renderedCompressedFilePath = './public/models/telecom_corridors/compressed/scan-etages45_compressed.glb'
+        this.renderedFilePath = './public/models/telecom_corridors/scan-etages45.glb'
         this.renderCompressedFileDefault = false;
         this.renderMeshesSimplyStyleDefault = true;
 
@@ -77,20 +76,19 @@ export default class RendererManager {
         this.availableFiles = [
             {
                 name: "Fusion Allégée",
-                path: './models/catacombs/main_scans/fusion_allege_10.glb',
-                //path: './models/scans_fusion/fusion_full_no_material.glb',
+                path: `${import.meta.env.VITE_MODELS_PATH}/catacombs/main_scans/fusion_allege_10.glb`,
             },
             {
                 name: "Fusion Complète sans matériaux",
-                path: "./models/catacombs/main_scans/fusion_full_no_material.glb",
+                path: `${import.meta.env.VITE_MODELS_PATH}/catacombs/main_scans/fusion_full_no_material.glb`,
             },
             {
                 name: "Ville Paris 3D",
-                path: './models/catacombs/main_scans/paris_3D.glb',
+                path: `${import.meta.env.VITE_MODELS_PATH}/catacombs/main_scans/paris_3D.glb`,
             },
             {
                 name: "Couche Google Maps",
-                path: './models/catacombs/main_scans/paris_GoogleMaps_layer.glb',
+                path: `${import.meta.env.VITE_MODELS_PATH}/catacombs/main_scans/paris_GoogleMaps_layer.glb`,
             }
         ]
 
@@ -136,7 +134,6 @@ export default class RendererManager {
     }
 
     init() {
-
         this.changeSceneOriginal()
         
         if (!this.renderCompressedFileDefault) {

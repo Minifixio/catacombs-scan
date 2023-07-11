@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 import SpriteTextButton from './SpriteTextButton';
 
-import markers from '../models/catacombs/individual_scans/parts-markers.json' assert { type: 'json' };
+import markers from '../public/models/catacombs/individual_scans/parts-markers.json' assert { type: 'json' };
 
 export default class MarkerManager {
     constructor(camera, scene, element, pathfinder, renderer, gui) {
@@ -32,7 +32,7 @@ export default class MarkerManager {
         this.textHighlightColor = 'green'
         this.markersJSON = markers.markers
 
-        this.fileDirLocation = "./models/catacombs/individual_scans/"
+        this.fileDirLocation = `${import.meta.env.VITE_MODELS_PATH}/catacombs/individual_scans/`
 
         this.renderMarkerByDefault = true;
 
@@ -42,9 +42,19 @@ export default class MarkerManager {
     }
 
     initMarkersFromJSON() {
-        this.markersJSON .forEach((v) => {
-            this.addMarker(new THREE.Vector3(v.marker.x, v.marker.y, v.marker.z), 0xFF0000, v.name, v.file, v.description, v.fpvMarker)
-        })
+        // Brute force : on récupère tous les fichiers JSON du dossier
+        const data = import.meta.glob('../**/*.json')
+        for (const path in data) {
+            data[path]().then((mod) => { 
+                if (path.indexOf('parts-markers') != -1) {
+                    this.markersJSON = mod.markers
+                    this.markersJSON .forEach((v) => {
+                        this.addMarker(new THREE.Vector3(v.marker.x, v.marker.y, v.marker.z), 0xFF0000, v.name, v.file, v.description, v.fpvMarker)
+                    })
+                }
+            })
+        }
+
     }
 
     initMarkers() {

@@ -1,8 +1,14 @@
 {
+  "scripts": {
+    "build": "vite build",
+    "preview": "vite preview"
+  },
   "dependencies": {
     "@tweenjs/tween.js": "^21.0.0",
     "@types/three": "^0.152.1",
+    "fs": "^0.0.1-security",
     "gsap": "^3.12.1",
+    "systemjs": "^6.14.1",
     "three": "^0.153.0",
     "three-addons": "^1.2.0",
     "three-mesh-bvh": "^0.6.0",
