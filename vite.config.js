@@ -8,5 +8,9 @@ export default defineConfig({
             external: ["fs/promises"],
         },
     },
-    assetsInclude: ['**/*.glb']
+    assetsInclude: ['**/*.glb'],
+    server: {
+        host: true,
+        port: 8000, // Le port ensuite utilisé dans Docker
+    }
 })
