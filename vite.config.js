@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 
 export default defineConfig({
     root: './',
+    base: '/catacombs/',
     build: {
         outDir: 'dist',
         rollupOptions: {
