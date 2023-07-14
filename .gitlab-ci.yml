@@ -1,0 +1,26 @@
+stages:
+    - build_node
+    - build_docker
+    - deploy
+
+build_node:
+    stage: build_node
+    image: node:18.13-alpine
+    cache:
+        paths:
+            - node_modules/
+    script: 
+        - npm install
+        - npm run build
+    artifacts:
+        paths:
+            - dist
+    
+build_docker:
+    stage: build_docker
+    image: docker:20.10.16
+    before_script:
+        - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    script:
+        - docker build --tag $CI_REGISTRY_IMAGE .
+        - docker push $CI_REGISTRY_IMAGE
