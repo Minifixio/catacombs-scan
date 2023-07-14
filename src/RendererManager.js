@@ -72,6 +72,7 @@ export default class RendererManager {
         this.viewMapFloorButton = null;
         this.viewMapButton = null;
         this.viewCatacombsButton = null;
+        this.infoButton = null;
 
         this.availableFiles = [
             {
@@ -375,6 +376,7 @@ export default class RendererManager {
         this.viewCatacombsButton.style.display = "none";
         this.viewMapButton.style.display = "none";
         this.viewMapFloorButton.style.display = "none";
+        this.infoButton.style.display = "none";
 
         this.loadGLTF(
             file.path,
@@ -548,6 +550,7 @@ export default class RendererManager {
         this.viewCatacombsButton.style.display = "block";
         this.viewMapButton.style.display = "block";
         this.viewMapFloorButton.style.display = "block";
+        this.infoButton.style.display = "block";
         this.changeSceneOriginal()
     }
 
@@ -581,6 +584,9 @@ export default class RendererManager {
         this.viewCatacombsButton.addEventListener('click', () => {
             this.loadedGLTF.scene.visible = !this.loadedGLTF.scene.visible
         })
+
+        this.infoButton = this.element.querySelector("#btn-info")
+        this.infoButton.style.display = "block";
     }
 
     initGUI() {
