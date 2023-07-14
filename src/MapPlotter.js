@@ -88,7 +88,6 @@ export default class MapPlotter {
         if (this.leafs.length > 0) {
             const lastLeaf = this.leafs.pop()
             this.scene.remove(this.leafsSpheres.pop())
-            console.log("Removing last leaf : ", lastLeaf)
         }
     }
     
@@ -97,7 +96,6 @@ export default class MapPlotter {
 
         this.leafs.forEach(leaf => {
             const leafComputedPath = this.pathfinding.findPath(this.startPoint, leaf, this.ZONE, groupID);
-            console.log(leafComputedPath)
             this.mapPoints.push(leafComputedPath)
         })
 
@@ -163,7 +161,6 @@ export default class MapPlotter {
 
             // Si click gauche
             if (event.button == 0) {
-                console.log("Adding a leaf", intersects[0].point)
 
                 this.leafs.push(intersects[0].point)
 
@@ -174,7 +171,6 @@ export default class MapPlotter {
 
             // Si click droit
             } else if (event.button == 2) {
-                console.log("Adding starting point", intersects[0].point)
 
                 this.startPoint.copy(intersects[0].point);
                 this.startPointSphere = this.sphereFromVector3(this.startPoint, 0.5, 0x00FF00)

@@ -19,11 +19,6 @@
 		</div>
 
 		<div class="view-buttons">
-			<!-- <button class="custom-btn btn-2">
-				<span class="material-symbols-outlined">
-					pin_drop
-				</span>
-			</button> -->
 			<button class="custom-btn btn-2" id="btn-map-floor">
 				<span class="material-symbols-outlined">
 					map
@@ -69,18 +64,10 @@
 			<div id="desc">
 				<b>Cliquez sur l'écran</b> pour vérouiller la vue <br>
 				Déplacez vous avec <b>Z,Q,S,D</b>  <br>
-				Appuyez sur <b>"Échap"</b> pour quitter la vue
+				Appuyez sur <b>"Échap"</b> pour quitter la vue FPV
 			</div>
 		</div>
 
         <script type="module" src="/src/main.js"></script>
-		<script>
-			function launch_toast() {
-				console.log("toast")
-				var x = document.getElementById("toast")
-				x.className = "show";
-				setTimeout(function(){ x.className = x.className.replace("show", "hidden"); }, 4000);
-			}
-		</script>
 	</body>
 </html>

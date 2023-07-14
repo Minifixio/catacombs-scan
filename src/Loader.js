@@ -37,7 +37,6 @@ export default class Loader {
         this.loading = false
         setTimeout(() => {
             if (!this.loading) {
-                console.log("done")
                 this.background.className += " loading-div-done";
                 this.counter.className += " count-done"
     

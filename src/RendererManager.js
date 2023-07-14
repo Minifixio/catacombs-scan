@@ -124,7 +124,6 @@ export default class RendererManager {
         plane.position.y = - 5;
         plane.receiveShadow = true;
         this.partPlane = plane;
-        console.log(new THREE.Vector3(sizeX+10, 5, 0))
         this.camera.position.set(sizeX+10, 5, 0)
         //this.camera.lookAt(new THREE.Vector3(0, 0, 0))
         this.scene.add( this.partPlane );
@@ -149,7 +148,6 @@ export default class RendererManager {
 
     
     loadGLTF(url, onLoad) {
-        //const loadingFunction = (xhr) => { console.log(( xhr.loaded / xhr.total * 100 ) + '% loaded') };
 
         const loadingFunction = (xhr) => {
             this.loader.update(xhr.loaded / xhr.total * 100)
@@ -199,7 +197,6 @@ export default class RendererManager {
     }
 
     loadMeshes(meshes) {
-        console.log("Loading meshes : ", meshes)
         this.currentMeshes = meshes;
         meshes.forEach(mesh => {
             this.scene.add(mesh)
@@ -210,7 +207,6 @@ export default class RendererManager {
     showObjectByLayer(layer) {
         this.scene.traverse((object) => {
         if (object.isMesh) {
-            console.log(object, layer)
             if (object.layers.isEnabled(layer)) {
                 object.visible = true;
             } else {
@@ -221,13 +217,11 @@ export default class RendererManager {
     }
 
     clear3DObjectsFromScene() {
-        console.log(this.scene)
         this.scene.traverse((object) => {
             if (!object.isAmbientLight && !object.isLight && !object.isLine && !object.isScene) {
               console.log("Removing object : ", object, " from scene...")
               object.visible = false;
               //this.scene.remove(object);
-              console.log(this.scene)
             }
         });
     }
@@ -248,7 +242,6 @@ export default class RendererManager {
             this.meshGrid.material.opacity = 0.2;
             this.meshGrid.material.transparent = true;
             this.meshGrid.translateY( - 5  );
-            console.log(this.meshGrid)
             this.scene.add( this.meshGrid );
         } 
 
@@ -461,7 +454,6 @@ export default class RendererManager {
 
         if (part) {
             const boundingBox = new THREE.Box3().setFromObject(gltf.scene)
-            console.log(boundingBox)
             this.changeSceneForPart(boundingBox.max.x - boundingBox.min.x, boundingBox.max.z - boundingBox.min.z)
         }
     
@@ -512,7 +504,6 @@ export default class RendererManager {
 
     renderSimplifyPart(meshes) {
         if (!this.partMode) return
-        console.log("Loading meshes : ", meshes)
         this.loadedMeshes.forEach(mesh => {
             this.scene.remove(mesh)
         })
@@ -550,7 +541,7 @@ export default class RendererManager {
         this.viewCatacombsButton.style.display = "block";
         this.viewMapButton.style.display = "block";
         this.viewMapFloorButton.style.display = "block";
-        this.infoButton.style.display = "block";
+        this.infoButton.style.display = "flex";
         this.changeSceneOriginal()
     }
 
@@ -586,7 +577,7 @@ export default class RendererManager {
         })
 
         this.infoButton = this.element.querySelector("#btn-info")
-        this.infoButton.style.display = "block";
+        this.infoButton.style.display = "flex";
     }
 
     initGUI() {

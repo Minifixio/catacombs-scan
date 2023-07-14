@@ -129,7 +129,6 @@ export default class MarkerManager {
     onDocumentPointerUp = (event) => {
         if (this.targetMeshes.length == 0) {
             this.scene.traverse((child) => {  if (child.isMesh) this.targetMeshes.push(child); })
-            console.log(this.targetMeshes)
         }
     
         this.mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
@@ -159,8 +158,6 @@ export default class MarkerManager {
             return
         }
 
-        console.log("New click", intersects[0].point)
-
         if (this.markerAddMode) {
             this.addMarker(intersects[0].point, 0xFF0000, "partie " + this.i++)
         }
@@ -175,7 +172,6 @@ export default class MarkerManager {
         if (this.selectMarkerActive == false) return
         this.markers.forEach((v) => {
             if (v.text == textObject) {
-                console.log("Selected marker", v.text)
                 this.removeMarkers()
                 this.renderer.loadPart(v.text)
             }

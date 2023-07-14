@@ -319,14 +319,12 @@ export default class WalkingControls extends EventDispatcher {
   };
 
   lock = () => {
-    console.log("lock")
     this.switchFlashlight(true)
 
     this.element.body.requestPointerLock();
   };
 
   unlock = () => {
-    console.log("unlock")
     this.switchFlashlight(false)
 
     //this.element.body.exitPointerLock();
@@ -334,7 +332,6 @@ export default class WalkingControls extends EventDispatcher {
   };
 
   disconnect = () => {
-    console.log("disconnect")
     this.element.removeEventListener(
       "mousemove",
       this.onMouseMove,
@@ -400,7 +397,6 @@ export default class WalkingControls extends EventDispatcher {
       mesh.geometry.computeBoundsTree();
     });
     this.switchFlashlight(true)
-    console.log("toast")
     var x = document.getElementById("toast")
     x.className = "show";
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 10000);

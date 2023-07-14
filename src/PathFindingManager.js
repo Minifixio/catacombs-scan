@@ -69,7 +69,6 @@ export default class PathFindingManager {
     }
 
     updatePathfindingZone(meshes) {
-        console.log("Updating pathfinding zone", meshes)
         this.targetMeshes = meshes;
         const geometryArray = meshes.map((mesh) => mesh.geometry);
         const concatenatedGeometryArray = BufferGeometryUtils.mergeBufferGeometries(geometryArray)
@@ -93,9 +92,7 @@ export default class PathFindingManager {
         this.computedPathPoints = this.pathfinder.findPath(this.startPoint, this.endPoint, this.ZONE, groupID);
     
         let pathSpheres = [];
-    
-        console.log("Chemin calculé : ", this.computedPathPoints);
-    
+        
         // On affiche le chemi, en bleu, avec des sphères
         for (let i = 0; i < this.computedPathPoints.length; i++) {
             const pointSphere = this.sphereFromVector3(this.computedPathPoints[i], 0.5, 0x0000ff);

@@ -60,30 +60,21 @@ export default class SimplifyManager {
     
         // this.scene.layers.set(this.simplifyLevel);
         // this.camera.layers.set(this.simplifyLevel);
-        
-        console.log("Simplified meshes : ", simplifiedMeshes);
-        console.log("Simplified meshes :", this.meshesSimplifiedArray);
 
         return simplifiedMeshes
     }
 
     simplifyMesh(mesh, level) {
-
-        console.log("Simplifying mesh : début...", mesh)
     
         const modifier = new SimplifyModifier();
         const simplified = mesh.clone();
     
         simplified.material = simplified.material.clone();
         simplified.material.flatShading = true;
-    
-        console.log("Simplifying mesh : meshes clonnées...")
-    
+        
         // Le coefficient numérique à la fin indique le pourcentage de triangles à conserver
         const count = Math.floor( simplified.geometry.attributes.position.count * 0.1 * 2**level);
         simplified.geometry = modifier.modify( simplified.geometry, count );
-
-        console.log("Simplifying mesh : meshes clonnées...")
 
         return simplified;
     }
