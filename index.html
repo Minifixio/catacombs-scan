@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>My first three.js app</title>
+		<title>Paris catacombs scan</title>
 		<style>
 			body { margin: 0; }
 		</style>
@@ -38,19 +38,48 @@
 					visibility_off
 				</span>
 			</button>
+			<button onclick="window.open('about.html')" class="custom-btn-info btn-3" id="btn-info">
+				<span class="material-symbols-outlined">
+					info
+				</span>
+			</button>
 		</div>
+
 		<div class="btn-container" id="btn-fpv">
 			<button class="custom-btn btn-2">
-				<span class="material-symbols-outlined">
+				<span  class="material-symbols-outlined">
 					visibility
 				</span>
 				<p>Vue FPV</p>
 			</button>
 		</div>
+		
 
 		<div class="btn-container" id="btn-back">
 			<button class="custom-btn btn-2">→ Revenir à la vue principale</button>
 		</div>
+
+		<div id="toast" class="hidden">
+			<div id="img">
+				<span  class="material-symbols-outlined">
+					help
+				</span>
+			</div>
+			<div id="desc">
+				<b>Cliquez sur l'écran</b> pour vérouiller la vue <br>
+				Déplacez vous avec <b>Z,Q,S,D</b>  <br>
+				Appuyez sur <b>"Échap"</b> pour quitter la vue
+			</div>
+		</div>
+
         <script type="module" src="/src/main.js"></script>
+		<script>
+			function launch_toast() {
+				console.log("toast")
+				var x = document.getElementById("toast")
+				x.className = "show";
+				setTimeout(function(){ x.className = x.className.replace("show", "hidden"); }, 4000);
+			}
+		</script>
 	</body>
 </html>

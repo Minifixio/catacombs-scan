@@ -400,5 +400,9 @@ export default class WalkingControls extends EventDispatcher {
       mesh.geometry.computeBoundsTree();
     });
     this.switchFlashlight(true)
+    console.log("toast")
+    var x = document.getElementById("toast")
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 10000);
   }
 }

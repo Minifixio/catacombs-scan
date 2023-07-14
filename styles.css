@@ -115,11 +115,13 @@ body, html {
   bottom: 5%;
 }
 .custom-btn {
+  align-items: center;
+  display: flex;
+  justify-content: center;
   bottom: 10%;
   right: 0;
   width: 230px;
   height: 100px;
-  padding: 10px 25px;
   font-size: 1.5em;
   border: 2px solid #000;
   font-family: 'Raleway';
@@ -128,7 +130,6 @@ body, html {
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
-  display: inline-block;
 }
 
 .btn-1 {
@@ -176,6 +177,7 @@ body, html {
   bottom: 5%;
   left: 5%;
   display: flex;
+  align-items: center;
 }
 
 .view-buttons > button > span {
@@ -226,3 +228,205 @@ body, html {
  top: 2px;
  border-radius: 50px;
 }
+
+.info-buttons {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  display: flex;
+}
+
+.info-buttons > button > span {
+  font-size: xxx-large;
+}
+
+.info-buttons > button {
+  width: 100px;
+    border-radius: 50px;
+    margin: 5px;
+    border: #000 5px solid;
+}
+
+.custom-btn-info {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  bottom: 10%;
+  right: 0;
+  width: 50px!important;
+  height: 50px!important;
+  font-size: 1.5em;
+  border: 3px solid #000!important;
+  font-family: 'Raleway';
+  font-weight: 700;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.btn-3 {
+  background: #c2c2c2;
+  color: #000000;
+  z-index: 1;
+}
+.btn-3:after {
+ position: absolute;
+ border-radius: 50px;
+
+ content: "";
+ width: 0;
+ height: 100%;
+ top: 0;
+ left: 0;
+ direction: rtl;
+ z-index: -1;
+ background: #c2c2c2;
+ color: #c2c2c2;
+ transition: all 0.3s ease;
+ width: 40px;
+}
+.btn-3:hover {
+ color: red;
+ border-radius: 50px;
+
+}
+.btn-3:hover:after {
+ left: auto;
+ border-radius: 50px;
+
+ right: 0;
+ width: 100%;
+}
+.btn-3:active {
+ top: 2px;
+ border-radius: 50px;
+}
+
+
+/* About page */
+#diapo-div {
+  position: relative;
+  margin: 10px;
+  height: 100%;
+}
+
+#about-title {
+  margin: 0;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+#sources-div {
+  margin-bottom: 50px;
+}
+
+
+#toast {
+  visibility: hidden;
+  height: fit-content;
+  width: fit-content;
+  /*margin-left: -125px;*/
+  margin: auto;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  position: fixed;
+  z-index: 1;
+  left: 0;right:0;
+  bottom: 30px;
+  font-size: 17px;
+  white-space: nowrap;
+  display: flex;
+  border-radius: 10px;
+  transition: visibility 2s;
+}
+#toast #img{
+  width: 50px;
+  float: left;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  box-sizing: border-box;
+  background-color: #111;
+  color: #fff;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px 0 0 10px;
+
+}
+#toast #desc{
+  color: #fff;
+  padding: 16px;
+  overflow: hidden;
+  white-space: nowrap;
+  font-weight: 100;
+}
+
+#toast #desc > b {
+  font-weight: 1000;
+  font-size: larger;
+}
+
+#toast.show {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 1s linear;
+  -webkit-animation: fadein 0.5s, expand 0.5s 0.5s;
+  animation: fadein 0.5s, expand 0.5s 0.5s;
+}
+
+#toast.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 1s, opacity 1s linear;
+}
+
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;} 
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes expand {
+  from {min-width: 50px} 
+  to {min-width: 350px}
+}
+
+@keyframes expand {
+  from {min-width: 50px}
+  to {min-width: 350px}
+}
+@-webkit-keyframes stay {
+  from {min-width: 350px} 
+  to {min-width: 350px}
+}
+
+@keyframes stay {
+  from {min-width: 350px}
+  to {min-width: 350px}
+}
+@-webkit-keyframes shrink {
+  from {min-width: 350px;} 
+  to {min-width: 50px;}
+}
+
+@keyframes shrink {
+  from {min-width: 350px;} 
+  to {min-width: 50px;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;} 
+  to {bottom: 60px; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 60px; opacity: 0;}
+} 
