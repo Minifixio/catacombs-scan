@@ -17,8 +17,12 @@ build_node:
             - dist
     
 build_docker:
+    variables:
+      DOCKER_TLS_CERTDIR: "/certs"
     stage: build_docker
     image: docker:20.10.16
+    services:
+      - docker:20.10.16-dind
     before_script:
         - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     script:
