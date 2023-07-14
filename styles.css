@@ -213,7 +213,6 @@ body, html {
 .btn-2:hover {
  color: red;
  border-radius: 50px;
- width: 100px;
 
 }
 .btn-2:hover:after {
