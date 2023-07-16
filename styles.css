@@ -109,19 +109,24 @@ body, html {
 
 
 /* Les boutons */
-.btn-container {
+.main-btn-container {
   position: absolute;
-  right: 5%;
+  left: 1.5%;
   bottom: 5%;
+  width: 25%;
 }
+.main-btn-container > button {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
 .custom-btn {
   align-items: center;
   display: flex;
   justify-content: center;
-  bottom: 10%;
   right: 0;
-  width: 230px;
-  height: 100px;
+  width: 100%;
+  height: 10%;
   font-size: 1.5em;
   border: 2px solid #000;
   font-family: 'Raleway';
@@ -160,32 +165,28 @@ body, html {
   top: 2px;
 }
 
-#btn-fpv {
-  bottom: 20%;
-}
-
-#btn-fpv > button > span {
+#btn-fpv > span {
   font-size: 1.5em;
 }
 
-#btn-fpv > button > p {
+#btn-fpv > p {
   margin:0;
 }
 
-.view-buttons {
+.view-btn-container {
   position: absolute;
   bottom: 5%;
-  left: 5%;
+  right: 1.5%;
   display: flex;
   align-items: center;
 }
 
-.view-buttons > button > span {
+.view-btn-container > button > span {
   font-size: xxx-large;
 }
 
-.view-buttons > button {
-  width: 100px;
+.view-btn-container > button {
+    width: 35%;
     border-radius: 50px;
     margin: 5px;
     border: #000 5px solid;
@@ -197,36 +198,33 @@ body, html {
   z-index: 1;
 }
 .btn-2:after {
- position: absolute;
- border-radius: 50px;
-
- content: "";
- width: 0;
- height: 100%;
- top: 0;
- left: 0;
- direction: rtl;
- z-index: -1;
- background: #c2c2c2;
- color: #c2c2c2;
- transition: all 0.3s ease;
- width: 90px;
+  position: absolute;
+  border-radius: 50px;
+  content: "";
+  width: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  direction: rtl;
+  z-index: -1;
+  background: #c2c2c2;
+  color: #c2c2c2;
+  transition: all 0.3s ease;
 }
 .btn-2:hover {
- color: red;
- border-radius: 50px;
-
+  color: red;
+  border-radius: 50px;
 }
 .btn-2:hover:after {
- left: auto;
- border-radius: 50px;
-
- right: 0;
- width: 100%;
+  left: auto;
+  border-radius: 50px;
+  right: 0;
+  width: 100%;
 }
 .btn-2:active {
- top: 2px;
- border-radius: 50px;
+  top: 2px;
+  border-radius: 50px;
 }
 
 .info-buttons {
@@ -413,3 +411,41 @@ body, html {
   from {bottom: 30px; opacity: 1;}
   to {bottom: 60px; opacity: 0;}
 } 
+
+
+
+.arrow-key-container {
+  display: none;
+  position: absolute;
+  right: 1.5%;
+  bottom: 5%;
+  z-index: 3;
+  /* display: inline-block; */
+  text-align: center;
+  transform: translate3d(0,0,0);
+}
+.arrow-key {
+  align-items: center;
+  background: #ccc;
+  border-radius: 6px;
+  box-shadow: -1px 1px 0 #999, -2px 2px 0 #999, -3px 3px 0 #999, -4px 4px 0 #999;
+  color: #fff;
+  display: inline-flex;
+  font-size: 30px;
+  font-weight: bold;
+  height: 75px;
+  justify-content: center;
+  margin: 5px;
+  transform: translate3d(0, 0, 0);
+  transition: box-shadow .1s linear, transform .1s linear;
+  width: 75px;
+  &:active,&.press-arrow {
+    box-shadow: 0px 0px 0 #999, 0px 0px 0 #999, 0px 0px 0 #999, -1px 1px 0 #999;
+    transform: translate3d(-3px, 3px, 0);
+  }
+}
+
+.press-arrow {
+  box-shadow: 0px 0px 0 #999, 0px 0px 0 #999, 0px 0px 0 #999, -1px 1px 0 #999;
+  transform: translate3d(-3px, 3px, 0);
+}

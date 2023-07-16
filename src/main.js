@@ -52,6 +52,7 @@ function initGlobalScene() {
 }
 
 const gui = new GUI();
+gui.close()
 const pathFindingManager = new PathFindingManager(camera, scene, document, gui, debug)
 const mapPlotter = new MapPlotter(camera, scene, document, pathFindingManager, gui, debug)
 

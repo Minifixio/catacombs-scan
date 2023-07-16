@@ -249,7 +249,7 @@ export default class MarkerManager {
                 }
             }).name("Afficher les markers");
         
-        if (debug) {
+        if (this.debug) {
             folder.add({markerAddMode: false}, 'markerAddMode')
                 .onChange((value) => {
                     this.markerAddMode = value; 
@@ -257,5 +257,7 @@ export default class MarkerManager {
                     else {this.pathfinder.disablePointPut()}
                 }).name("Activer le placement de markers");
         }
+
+        folder.close()
     }
 }
