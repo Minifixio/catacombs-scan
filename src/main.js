@@ -8,7 +8,7 @@ import SimplifyManager from './SimplifyManager';
 import PathFindingManager from './PathFindingManager';
 import ControlsManager from './ControlsManager';
 import MapPlotter from './MapPlotter';
-import InfoPanel from './InfoPanels';
+import InfoPanel from './InfoPanel';
 import TeleportManager from './TeleportManager';
 
 // Pour le debug
