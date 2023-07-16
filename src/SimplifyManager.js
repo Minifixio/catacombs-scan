@@ -2,13 +2,14 @@ import * as THREE from 'three'
 import { SimplifyModifier } from 'three/addons/modifiers/SimplifyModifier.js';
 
 export default class SimplifyManager {
-    constructor(camera, scene, element, pathfinder, renderer, gui) {
+    constructor(camera, scene, element, pathfinder, renderer, gui, debug) {
         this.camera = camera
         this.scene = scene
         this.element = element
         this.pathfinder = pathfinder
         this.renderer = renderer
         this.gui = gui
+        this.debug = debug
         
         this.simplifyLevel;
         this.maxSimplifyLevel = 10
@@ -49,7 +50,6 @@ export default class SimplifyManager {
                 //simplifiedMesh.layers.set(this.simplifyLevel);
         
                 simplifiedMeshes.push(simplifiedMesh);
-                //this.scene.add(simplifiedMesh)
             });
             this.meshesSimplifiedArray[this.simplifyLevel-1] = simplifiedMeshes;
         }

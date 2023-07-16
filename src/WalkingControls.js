@@ -8,7 +8,7 @@ THREE.BufferGeometry.prototype.computeBoundsTree = computeBoundsTree;
 
 // Merci à : https://github.com/rodones/map/tree/f7bd4f8d54cbbf0b52783465a139cf55059246fa
 export default class WalkingControls extends EventDispatcher {
-  constructor(camera, element, scene, exitCallback, renderer) {
+  constructor(camera, element, scene, exitCallback, renderer, debug=false) {
     super();
 
 
@@ -16,11 +16,11 @@ export default class WalkingControls extends EventDispatcher {
     if (!element) throw new Error("The parameter 'element' is required!");
 
     this.camera = camera;
-    //camera.rotateOnWorldAxis(new Vector3(1.0, 0.0, 0.0), 0)
     this.element = element;
     this.scene = scene;
     this.exitCallback = exitCallback;
     this.renderer = renderer;
+    this.debug = debug
 
     this.isLocked = false; 
     this.hasMouse = true; 
@@ -326,8 +326,6 @@ export default class WalkingControls extends EventDispatcher {
 
   unlock = () => {
     this.switchFlashlight(false)
-
-    //this.element.body.exitPointerLock();
     this.exitCallback();
   };
 

@@ -5,12 +5,13 @@ import { MeshLine, MeshLineMaterial } from 'three.meshline';
 
 export default class PathFindingManager {
     
-    constructor(camera, scene, element, gui) {
+    constructor(camera, scene, element, gui, debug=false) {
 
         this.camera = camera
         this.scene = scene
         this.element = element
         this.gui = gui
+        this.debug = debug
 
         // Les données générées lors de la création / édition d'un chemin
         this.computedPathPoints = [];

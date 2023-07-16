@@ -3,18 +3,19 @@ import * as THREE from 'three'
 import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import Loader from './Loader';
-import InfoPanel from './InfoPanels';
+import InfoPanel from './InfoPanel';
 import MarkerManager from './MarkerManager';
 
 export default class RendererManager {
 
-    constructor(camera, scene, element, pathfinder, mapPlotter, gui) {
+    constructor(camera, scene, element, pathfinder, mapPlotter, gui, debug) {
         this.camera = camera
         this.scene = scene
         this.element = element
         this.gui = gui
         this.pathfinder = pathfinder
         this.mapPlotter = mapPlotter
+        this.debug = debug
 
         this.dracoLoader = new DRACOLoader();
         this.dracoLoader.setDecoderPath('/examples/jsm/libs/draco/')
@@ -125,7 +126,6 @@ export default class RendererManager {
         plane.receiveShadow = true;
         this.partPlane = plane;
         this.camera.position.set(sizeX+10, 5, 0)
-        //this.camera.lookAt(new THREE.Vector3(0, 0, 0))
         this.scene.add( this.partPlane );
         this.partPlane.visible = true;
         
@@ -581,24 +581,26 @@ export default class RendererManager {
     }
 
     initGUI() {
-        //const folder = this.gui.addFolder('Affichage');
-        // folder.add({showMainGLTF: true}, 'showMainGLTF').onChange((value) => {value ? this.loadedGLTF.scene.visible = true : this.loadedGLTF.scene.visible = false}).name("Affichage des catacombes");
-        // folder.add({showCityGLTF: true}, 'showCityGLTF').onChange((value) => {value ? this.cityGLTF.scene.visible = true : this.cityGLTF.scene.visible = false}).name("Affichage de la ville");
-        // folder.add({showCityFloorGLTF: false}, 'showCityFloorGLTF').onChange((value) => {value ? this.cityFloorGLTF.scene.visible = true : this.cityFloorGLTF.scene.visible = false}).name("Affichage du sol de la ville");
-
-        //folder.add({showFloor: this.showFloor}, 'showFloor').onChange((value) => {this.showFloor = value; this.showMeshGrid = value; this.renderFloor()}).name("Affichage du sol");
-        //folder.add({showLoadedGLTF: false}, 'showLoadedGLTF').onChange((value) => this.showLoadedGLTF(value)).name("Affichage de l'objet chargé");
-        //folder.add({renderOriginalObject: () => this.renderOriginalObject()}, 'renderOriginalObject').name('Afficher l\'objet principal');
-        //folder.add({renderSimplifiedObject: () => this.renderSimplifiedObject()}, 'renderSimplifiedObject').name('Afficher l\'objet simplifié');
-
-        // const options = {}
-        // for (let i=0; i<this.availableFiles.length; i++) {
-        //     options[this.availableFiles[i].name] = () => this.loadFile(this.availableFiles[i])
-        // }
-
-        // for (let i=0; i<this.availableFiles.length; i++) {
-        //     folder.add(options, this.availableFiles[i].name).name(this.availableFiles[i].name)
-        // }
-        // folder.close()
+        if (this.debug) {
+            const folder = this.gui.addFolder('Affichage');
+            folder.add({showMainGLTF: true}, 'showMainGLTF').onChange((value) => {value ? this.loadedGLTF.scene.visible = true : this.loadedGLTF.scene.visible = false}).name("Affichage des catacombes");
+            folder.add({showCityGLTF: true}, 'showCityGLTF').onChange((value) => {value ? this.cityGLTF.scene.visible = true : this.cityGLTF.scene.visible = false}).name("Affichage de la ville");
+            folder.add({showCityFloorGLTF: false}, 'showCityFloorGLTF').onChange((value) => {value ? this.cityFloorGLTF.scene.visible = true : this.cityFloorGLTF.scene.visible = false}).name("Affichage du sol de la ville");
+    
+            folder.add({showFloor: this.showFloor}, 'showFloor').onChange((value) => {this.showFloor = value; this.showMeshGrid = value; this.renderFloor()}).name("Affichage du sol");
+            folder.add({showLoadedGLTF: false}, 'showLoadedGLTF').onChange((value) => this.showLoadedGLTF(value)).name("Affichage de l'objet chargé");
+            folder.add({renderOriginalObject: () => this.renderOriginalObject()}, 'renderOriginalObject').name('Afficher l\'objet principal');
+            folder.add({renderSimplifiedObject: () => this.renderSimplifiedObject()}, 'renderSimplifiedObject').name('Afficher l\'objet simplifié');
+    
+            const options = {}
+            for (let i=0; i<this.availableFiles.length; i++) {
+                options[this.availableFiles[i].name] = () => this.loadFile(this.availableFiles[i])
+            }
+    
+            for (let i=0; i<this.availableFiles.length; i++) {
+                folder.add(options, this.availableFiles[i].name).name(this.availableFiles[i].name)
+            }
+            folder.close()
+        }
     }
 }

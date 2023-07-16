@@ -3,12 +3,13 @@ import * as THREE from 'three'
 import * as BufferGeometryUtils from 'three/addons/utils/BufferGeometryUtils.js';
 
 export default class MapPlotter {
-    constructor(camera, scene, element, pathfinder, gui) {
+    constructor(camera, scene, element, pathfinder, gui, debug=false) {
         this.camera = camera
         this.scene = scene
         this.element = element
         this.gui = gui
         this.pathfinder = pathfinder
+        this.debug = debug
 
         // Les différentes extrémités de la map qui seront les arrivés du pathfinding
         this.leafs = []

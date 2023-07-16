@@ -4,13 +4,14 @@ import SpriteTextButton from './SpriteTextButton';
 import markers from '../public/models/catacombs/individual_scans/parts-markers.json' assert { type: 'json' };
 
 export default class MarkerManager {
-    constructor(camera, scene, element, pathfinder, renderer, gui) {
+    constructor(camera, scene, element, pathfinder, renderer, gui, debug=false) {
         this.camera = camera
         this.scene = scene
         this.element = element
         this.pathfinder = pathfinder
         this.renderer = renderer
         this.gui = gui
+        this.debug = debug
 
         this.targetMeshes = []
 
@@ -238,12 +239,7 @@ export default class MarkerManager {
     
     initGUI() {
         const folder = this.gui.addFolder('Markers');
-        // folder.add({markerAddMode: false}, 'markerAddMode')
-        //     .onChange((value) => {
-        //         this.markerAddMode = value; 
-        //         if(!value) {this.pathfinder.enablePointPut()}
-        //         else {this.pathfinder.disablePointPut()}
-        //     }).name("Activer le placement de markers");
+
         folder.add({markerShow: this.renderMarkerByDefault}, 'markerShow')
             .onChange((value) => {
                 if (value) {
@@ -252,6 +248,14 @@ export default class MarkerManager {
                     this.hideMarkers()
                 }
             }).name("Afficher les markers");
-        //folder.close()
+        
+        if (debug) {
+            folder.add({markerAddMode: false}, 'markerAddMode')
+                .onChange((value) => {
+                    this.markerAddMode = value; 
+                    if(!value) {this.pathfinder.enablePointPut()}
+                    else {this.pathfinder.disablePointPut()}
+                }).name("Activer le placement de markers");
+        }
     }
 }

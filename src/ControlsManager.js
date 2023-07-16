@@ -14,7 +14,7 @@ export default class ControlsManager {
         isWalkingMode: false,
     }
 
-    constructor(camera, scene, renderer, pathfinder, element, rendererManager, gui) {
+    constructor(camera, scene, renderer, pathfinder, element, rendererManager, gui, debug=false) {
         this.camera = camera
         this.scene = scene
         this.renderer = renderer
@@ -22,6 +22,7 @@ export default class ControlsManager {
         this.pathfinder = pathfinder
         this.rendererManager = rendererManager
         this.gui = gui
+        this.debug = debug
 
         this.clock = new THREE.Clock();
 
