@@ -1,12 +1,14 @@
 # Paris catacombs scan using an iPhone 14 LiDAR
 
+You can find the demo [here](https://emile.le-gallic.com/catacombs/)
+
 You can find the project poster here :
 - [English version](previews/project-poster-en.png) (EN)
 - [Version française](previews/project-poster-fr.png) (FR)
 
 You can find the project explanation slides here :
-- [English version](previews/project-slides-en.png) (EN)
-- [Version française](previews/project-slides-fr.png) (FR)
+- [English version](previews/project-slides-en.pdf) (EN)
+- [Version française](previews/project-slides-fr.pdf) (FR)
 
 
 
