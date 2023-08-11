@@ -196,15 +196,17 @@ export default class MarkerManager {
     }
 
     highlightMarker(textObject) {
+        let found = false
         this.markers.forEach((v) => {
             if (v.text == textObject) {
-                textObject.backgroundColor = this.textHighlightColor;
-                //textObject.scale.set(5,5,0)
-                this.element.getElementsByTagName("body")[0].style.cursor = "pointer";
+                textObject._backgroundColor = this.textHighlightColor;
+                this.element.getElementsByTagName("body")[0].style.cursor = "zoom-in";
+                found = true;
             } else {
                 v.text.backgroundColor = this.textBackgroundColor;
             }
         })
+        return found
     }
 
     
@@ -221,7 +223,9 @@ export default class MarkerManager {
             intersectedObject = intersects[0].object
         } 
 
-        this.highlightMarker(intersectedObject)
+        if (!this.highlightMarker(intersectedObject)) {
+            this.element.getElementsByTagName("body")[0].style.cursor = "pointer";
+        }        
     }
 
     onDocumentPointerDown = (event) => {
